@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GooglePlay.iml" filepath="$PROJECT_DIR$/GooglePlay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XUtilsLibrary/XUtilsLibrary.iml" filepath="$PROJECT_DIR$/XUtilsLibrary/XUtilsLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-support-v7-appcompat/android-support-v7-appcompat.iml" filepath="$PROJECT_DIR$/android-support-v7-appcompat/android-support-v7-appcompat.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
