@@ -1,11 +1,16 @@
 package com.yeyu.googleplay;
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.Window;
 import android.widget.Adapter;
 
@@ -20,6 +25,7 @@ public class MainActivity extends BaseActivity {
     private PagerTab mPagerTab;
     private MyAdapter mAdapter;
 
+    private ActionBarDrawerToggle toggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +61,42 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+        initActionbar();
     }
+
+    // 初始化actionbar
+    private void initActionbar() {
+        ActionBar actionbar = getSupportActionBar();
+
+        actionbar.setHomeButtonEnabled(true);// home处可以点击
+        actionbar.setDisplayHomeAsUpEnabled(true);// 显示左上角返回键,当和侧边栏结合时展示三个杠图片
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
+
+        // 初始化抽屉开关
+        toggle = new ActionBarDrawerToggle(this, drawer,
+                R.drawable.ic_drawer_am, R.string.drawer_open,
+                R.string.drawer_close);
+
+        toggle.syncState();// 同步状态, 将DrawerLayout和开关关联在一起
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // 切换抽屉
+                toggle.onOptionsItemSelected(item);
+                break;
+
+            default:
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     /*
 

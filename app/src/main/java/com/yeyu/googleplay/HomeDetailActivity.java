@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 
 import com.yeyu.googleplay.Adapter.holder.DetailAppInfoHolder;
+import com.yeyu.googleplay.Adapter.holder.DetailDesHolder;
+import com.yeyu.googleplay.Adapter.holder.DetailPicsHolder;
 import com.yeyu.googleplay.Adapter.holder.DetailSafeHolder;
 import com.yeyu.googleplay.Utils.UIUtils;
 import com.yeyu.googleplay.View.LoadingPage;
@@ -64,9 +67,23 @@ public class HomeDetailActivity extends BaseActivity {
         DetailSafeHolder safeHolder = new DetailSafeHolder();
         flDetailSafe.addView(safeHolder.getRootView());
         safeHolder.setData(data);
+
+        //初始化截图信息
+        HorizontalScrollView hsvPic = (HorizontalScrollView) view
+                .findViewById(R.id.hsv_detail_pics);
+        DetailPicsHolder picsHolder =new DetailPicsHolder();
+        hsvPic.addView(picsHolder.getRootView());
+
+        picsHolder.setData(data);
+
+        //初始化应用描述信息
+        FrameLayout flDetailDes =(FrameLayout) view
+                .findViewById(R.id.fl_detail_des);
+        DetailDesHolder desHolder =new DetailDesHolder();
+        flDetailDes.addView(desHolder.getRootView());
+        desHolder.setData(data);
+
         return view;
-
-
     }
 
     public LoadingPage.ResultState onLoad() {

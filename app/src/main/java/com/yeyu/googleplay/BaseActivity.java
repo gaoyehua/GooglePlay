@@ -1,6 +1,7 @@
 package com.yeyu.googleplay;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 
